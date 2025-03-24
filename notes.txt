@@ -1,0 +1,9 @@
+
+1. Load data from Spotify API -> Load the data to PUP/SUB queue
+2. Trigger (auto) GCP function to ingest the data to GCP Bucket from PUP/SUB queue
+3. Run a pyspark job to transform the json object to a flattened table and load the data to bigquery table
+4. Run queries on top of the bigquery table
+
+
+Run GCP data fetcher function
+curl -X POST https://fetch-spotify-782663887206.us-central1.run.app -H "Authorization: bearer $(gcloud auth print-identity-token)" -H "Content-Type: application/json" -d '{  "playlist": "6TVfiWmo8KtflUAmkK9gGF" }'
